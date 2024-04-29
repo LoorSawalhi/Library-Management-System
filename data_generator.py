@@ -55,6 +55,10 @@ for i in range(num_loans):
     due_date = fake.date_between(datetime.now() + timedelta(10), datetime.now() + timedelta(20))
     date_borrowed = fake.date_between(datetime.now() - timedelta(30), datetime.now() + timedelta(9))
     date_returned = fake.date_time_between_dates(date_borrowed, due_date)
+    if date_returned > datetime.now():
+        date_returned = "NULL"
+    else :
+        books[i]["state"] = "Available"
     loan = {
         "id": i + 1,
         "book id": books[i]["id"],
