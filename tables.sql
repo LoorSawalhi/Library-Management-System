@@ -1,5 +1,5 @@
 create table Books (
-    id int primary key,
+    id int IDENTITY(1,1) primary key,
     title varchar(32),
     author varchar(32),
     ISBN varchar(32) unique ,
@@ -11,7 +11,7 @@ create table Books (
 );
 
 create table Borrower (
-    id int primary key,
+    id int IDENTITY(1,1) primary key,
     first_name varchar(32),
     last_name varchar(32),
     email varchar(32) unique ,
@@ -20,7 +20,7 @@ create table Borrower (
 );
 
 create table Loan (
-    id int primary key,
+    id int IDENTITY(1,1) primary key,
     book_id int,
     borrower_id int,
     due_date date,
