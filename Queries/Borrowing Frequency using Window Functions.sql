@@ -1,8 +1,7 @@
 with borrowing_Frequency AS(
     SELECT  L.borrower_id,
              COUNT(*) OVER(PARTITION BY L.borrower_id) AS borrowing_frequency
-    FROM Borrower b
-    JOIN loan L ON b.id = L.borrower_id
+    FROM loan L
     )
 
 SELECT L.borrower_id,
