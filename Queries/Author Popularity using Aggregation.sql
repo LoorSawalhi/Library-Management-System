@@ -5,6 +5,7 @@ with borrowing_Frequency AS(
              COUNT(*) OVER(PARTITION BY b.author) AS borrowing_frequency
     FROM Books b
     JOIN loan L ON b.id = L.book_id
+    GROUP BY b.author
     )
 
 SELECT b.author,
